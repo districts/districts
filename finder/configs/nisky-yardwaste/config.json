@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Nisky Yard Waste Pickup",
+    "layername": "Pickup Zones",
+    "about": "Welcome to the Nisky Yard Waste Pickup Zone Locator!<p>This application allows you to quickly and accurately locate your pickup zone and day by address or map location.</p><p class='blue-text lighten-1' style='font-size: 13px;'><em>This application is in no way affiliated with, maintained by, or endorsed by the Town of Niskayuna.</em></p>"
+  },
+  "districts": {
+    "data": {
+      "format": "geojson",
+      "file": "districts.geojson",
+      "topojson_object": null
+    },
+    "visible": true,
+    "style": {
+      "clickable": false,
+      "fillColor": "black",
+      "fillOpacity": 0,
+      "strokeWeight": 2
+    },
+    "popup": {
+      "properties": {
+        "Pickup Zone": "zone",
+        "Pickup Day": "pickup"
+      },
+      "text": "For more information, please contact the Town Highway Department at <a href='tel:(518) 785-9753'>(518) 785-9753</a>."
+    }
+  },
+  "geolocate": true,
+  "geocode": {
+    "componentRestrictions": {
+      "country": "USA",
+      "postalCode": "12309"
+    }
+  }
+}

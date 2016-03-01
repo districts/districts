@@ -1,0 +1,32 @@
+{
+  "app": {
+    "title": "Seminole County Voter Precincts",
+    "layername": "Voter Precincts",
+    "about": "Welcome to the Seminole County Voting Precinct Locator!<p>This application allows you to quickly and accurately locate your voting precinct by address or map location.</p></p>Voting Precinct boundary data courtesy of <a href='http://www.seminolecountyfl.gov/departments-services/information-services/gis-geographic-information-systems/gis-data.stml'>Seminole County FL</a></p><hr><p class='blue-text lighten-1' style='font-size: 13px;'><em>This application is in no way affiliated with, maintained by, or endorsed by Seminole County.</em></p>"
+  },
+  "districts": {
+    "data": {
+      "format": "topojson",
+      "file": "voter_precincts.json",
+      "topojson_object": "voter_precincts"
+    },
+    "visible": true,
+    "style": {
+      "clickable": false,
+      "fillColor": "black",
+      "fillOpacity": 0,
+      "strokeWeight": 2
+    },
+    "popup": {
+      "properties": {
+        "Voter Precinct": "precinct",
+        "Polling Place": "polling"
+      },
+      "text": "For more information, please contact <a href='http://voteseminole.org/'>voteseminole.org</a>."
+    }
+  },
+  "geolocate": false,
+  "geocode": {
+    "componentRestrictions": {}
+  }
+}

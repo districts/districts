@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+  <title class="title">District Finder</title>
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/img/favicon-192.png">
+  <link rel="icon" sizes="192x192" href="assets/img/favicon-192.png">
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+  <!-- CSS  -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar-fixed">
+    <nav role="navigation" class="blue lighten-1">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center title" style="font-size: 20px; font-weight: 500;">District Finder</a>
+        <a href="#" data-activates="nav-mobile" class="button-collapse show-on-large" style="padding-left: 10px;"><i class="material-icons">menu</i></a>
+        <ul class="right">
+          <li><a href="#" id="toggle-search"><i class="material-icons">search</i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Sidebar -->
+  <ul class="side-nav" id="nav-mobile" >
+    <li><a href="#" class="waves-effect waves-blue" id="my-location"><i class="material-icons">my_location</i></i> My Location</a></li>
+    <hr>
+    <li><a href="#" class="waves-effect waves-blue" id="full-extent"><i class="material-icons">zoom_out_map</i></i> Full Extent</a></li>
+    <hr>
+    <div class="sidebar-form">
+      <input type="checkbox" class="filled-in" id="layer-check" checked="checked" />
+      <label for="layer-check" id="layer-name">Districts</label>
+    </div>
+    <hr>
+    <div class="sidebar-form">
+      <input name="basemap" type="radio" id="streets" checked="checked" />
+      <label for="streets">Streets</label>
+    </div>
+    <div class="sidebar-form" style="margin-top: -30px;">
+      <input name="basemap" type="radio" id="satellite" />
+      <label for="satellite">Satellite</label>
+    </div>
+    <hr>
+    <div id="about-text"></div>
+    <!-- <div id="footer">&copy; 2016 districtfinder.io</div> -->
+  </ul>
+  <!-- Search -->
+  <nav class="white" id="search-bar">
+    <div class="nav-wrapper">
+      <div class="input-field">
+        <input placeholder="Address Search" id="search" type="search" autocomplete="off">
+        <label for="search"><i class="material-icons">search</i></label>
+        <!-- <label for="search"><i class="material-icons">home</i></label> -->
+        <i class="material-icons" id="clear-search">close</i>
+      </div>
+    </div>
+  </nav>
+  <!-- Main -->
+  <main>
+    <div id="map"></div>
+  </main>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="assets/js/turf.js"></script>
+  <!-- <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script> -->
+  <script src="assets/js/app.js"></script>
+  </body>
+</html>

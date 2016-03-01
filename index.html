@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+  <meta name="description" content="Quickly and accurately locate your zone or district by address or map location">
+  <meta name="keywords" content="district finder, zone mapper, geolocation, point-in-polygon, spatial-join">
+  <title>District Finder</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <style>
+    .chip {
+      margin: 5px;
+    }
+    hr {
+      background-color: #C0C0C0;
+      height: 1px;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">District Finder</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#how-it-works">HOW IT WORKS</a></li>
+        <li><a href="#features">FEATURES</a></li>
+        <li><a href="#get-started">GET STARTED</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#about" onclick="$('.button-collapse').sideNav('hide');">ABOUT</a></li>
+        <li><a href="#how-it-works" onclick="$('.button-collapse').sideNav('hide');">HOW IT WORKS</a></li>
+        <li><a href="#features" onclick="$('.button-collapse').sideNav('hide');">FEATURES</a></li>
+        <li><a href="#get-started" onclick="$('.button-collapse').sideNav('hide');">GET STARTED</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="container" style="padding-top: 30px;">
+    <div class="center">
+      <h5 class="flow-text">Provide your users with an intuitive, responsive web application for determining which district or zone their address falls within.</h5>
+      <div class="chip">
+        Election Districts
+      </div>
+      <div class="chip">
+        School Districts
+      </div>
+      <div class="chip">
+        Recycling Zones
+      </div>
+      <div class="chip">
+        Water & Sewer Districts
+      </div>
+      <div class="chip">
+        Historic Districts
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m8">
+      <img class="responsive-img materialboxed" width="100%" align="middle" src="img/screenshot_desktop1.png">
+    </div>
+    <div class="col s12 m4 center-align">
+      <img class="responsive-img materialboxed" width="100%" align="middle" src="img/screenshot_mobile1.png">
+    </div>
+  </div>
+  <div class="container">
+    <div class="section" id="implementations">
+      <h3 class="center">District Finder Implementations</h3>
+      <hr>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card grey lighten-4">
+            <div class="card-content center">
+              <div class="card-title">Nisky Yard Waste Pick Up</div>
+              <p>
+                Allows residents of the town of Niskayuna, NY to quickly and accurately locate their pickup zone and day by address or map location. (Demo)
+              </p>
+            </div>
+            <div class="card-action center">
+              <a href="finder/#nisky-yardwaste" class="light-blue-text">View Nisky Yard Waste Pickup</a>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card grey lighten-4">
+            <div class="card-content center">
+              <div class="card-title">Seminole County Voter Precincts</div>
+              <p>
+                Allows residents of Seminole County, FL to quickly and accurately locate their voter precinct and Polling Place by address or map location. (Demo)
+              </p>
+            </div>
+            <div class="card-action center">
+              <a href="finder/#seminole-voting" class="light-blue-text">View Seminole County Voter Precincts</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="about">
+      <h3 class="center">About District Finder</h3>
+      <hr>
+      <p>
+        District Finder is a simple, responsive application and hosted service for locating which district or zone an address falls within. Many municipalities and service providers maintain service districts, zones, or other polygon boundaries, which define their service areas. District Finder aims to provide an easy solution for stakeholders who find themselves asking "Which district am I in?", "Where do I go to vote?", or "What day will my recycling be collected?".
+      </p>
+      <p>
+        Simply provide your polygon boundary data in geojson, or topojson format, and have a working "finder" application up and running in minutes. Provide your users with the URL link or embed the application on your own website or blog.
+      </p>
+    </div>
+    <div class="section" id="how-it-works">
+      <h3 class="center">How It Works</h3>
+      <hr>
+      <p>
+        District Finder is a responsive client-side web application, which can be accessed from any modern web browser, from a desktop computer to a tablet or smartphone. It is built on the <a href="https://developers.google.com/maps/documentation/javascript/">Google Maps JavaScript API</a>, the <a href="http://turfjs.org/">Turf</a> spatial analysis library, and <a href="http://materializecss.com/">Materialize</a>, a modern responsive front-end framework based on <a href="https://www.google.com/design/spec/material-design/introduction.html">Material Design</a> principles.
+      </p>
+      <p>
+        <ul class="collection">
+          <li class="collection-item">
+            Depending on your configuration settings, when the user visits your "finder" site, they can be immediately geolocated and a point-in-polygon analysis will determine which district they are currently within, providing them with additional information.
+          </li>
+          <li class="collection-item">
+            Users can search for an address, which will find the corresponding coordinates, locate the address on the map, and determine which district the address falls within.
+          </li>
+          <li class="collection-item">
+            Users can also move the map marker to another location on the map to view the corresponding address and district information for that location as well.
+          </li>
+        </ul>
+      </p>
+    </div>
+    <div class="section" id="features">
+      <h3 class="center">Features</h3>
+      <hr>
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings_overscan</i></h2>
+            <h5 class="center">Responsive Design</h5>
+            <p class="center light">District Finder is designed with a single codebase for both desktop and mobile access with integrated user geolocation.</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Rapid Configured</h5>
+            <p class="center light">New instances can be rapidly deployed via simple configuration files, making development quick and painless.</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">code</i></h2>
+            <h5 class="center">Open Source</h5>
+            <p class="center light">District Finder is built on free and open source components and can be freely forked or modified for your own purposes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="get-started">
+      <h3 class="center">Support &amp; Hosting</h3>
+      <hr>
+      <p class="center">
+        If GIS and application development are not your thing, we can configure and host your District Finder implementation right here on our site. Simply fill out the form below and we will get back to you as soon as possible.
+      </p>
+      <iframe src="https://docs.google.com/forms/d/1d6Zp1-oNWHslZPgHsE3HUqdfG0iA7z872IazCO109Us/viewform?embedded=true" width="100%" height="1100" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+    </div>
+  </div>
+  <footer class="page-footer white">
+    <div class="footer-copyright grey">
+      <div class="container">
+      © 2016 District Finder
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script>
+    (function($){
+      $(function(){
+        $('.button-collapse').sideNav();
+      });
+    })(jQuery);
+  </script>
+  </body>
+</html>
