@@ -92,11 +92,11 @@ $(document).ready(function() {
         initialize();
       },
       error: function (jqXHR, textStatus, errorThrown){
-        window.location.replace("../starter-template/");
+        window.location.replace("../");
       }
     });
   } else {
-    window.location.replace("../starter-template/");
+    window.location.replace("../");
   }
 });
 
