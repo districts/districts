@@ -180,15 +180,10 @@ function geolocate() {
     navigator.geolocation.getCurrentPosition(function (position) {
       $("#toast-container").empty();
       $(".button-collapse").sideNav("hide");
-      var location = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      marker.setPosition(location);
-      map.setCenter(location);
-      map.setZoom(17);
       geocodeLatLng(position.coords.latitude, position.coords.longitude, true);
     }, null, {maximumAge:600000, timeout:10000, enableHighAccuracy: true});
+  } else {
+    alert("Your browser does not support geolocation. Please search for an address.");
   }
 }
 
@@ -203,7 +198,7 @@ function geocodeAddress() {
       address = results[0].formatted_address;
       getInfo(lat, lng, true);
     } else {
-      alert("Geocode was not successful for the following reason: " + status);
+      alert("Geocoding was unsuccessful for the following reason: " + status);
     }
   });
 }
@@ -219,13 +214,13 @@ function geocodeLatLng(lat, lng, updateMap) {
       if (results[0]) {
         $("#toast-container").empty();
         address = results[0].formatted_address;
-        getInfo(lat, lng, updateMap);
+        getInfo(lat, lng, false);
       } else {
-        alert("No results found");
+        alert("No address found. Please try again.");
         $("#toast-container").empty();
       }
     } else {
-      alert("Geocode was not successful for the following reason: " + status);
+      alert("Reverse geocoding was unsuccessful for the following reason: " + status);
       $("#toast-container").empty();
     }
   });
@@ -250,6 +245,8 @@ function getInfo(lat, lng, updateMap) {
       lat: lat,
       lng: lng
     });
+    infowindow.setContent("<div class='center-align'><h6 class='blue-text lighten-1'>" + address + "</h6>" + content + "</div>");
+    infowindow.open(map, marker);
     if (updateMap) {
       map.setCenter({
         lat: lat,
@@ -257,11 +254,8 @@ function getInfo(lat, lng, updateMap) {
       });
       map.setZoom(17);
     }
-    infowindow.setContent("<div class='center-align'><h6 class='blue-text lighten-1'>" + address + "</h6>" + content + "</div>");
-    infowindow.open(map, marker);
   } else {
     infowindow.setContent("<div class='center-align'><h6 class='blue-text lighten-1'>" + address + "</h6></div>");
-    infowindow.open(map, marker);
     Materialize.toast("This location is outside of the geographic boundaries of this service...", 4000);
   }
 }
