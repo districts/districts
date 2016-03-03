@@ -15,6 +15,10 @@ var marker = new google.maps.Marker({
   animation: google.maps.Animation.DROP
 });
 
+var autocomplete = new google.maps.places.Autocomplete((document.getElementById("search")), {
+  types: ["geocode"]
+});
+
 marker.addListener("click", function() {
   infowindow.open(map, marker);
 });
@@ -27,17 +31,16 @@ marker.addListener("dragend", function() {
   geocodeLatLng(marker.getPosition().lat(), marker.getPosition().lng(), false);
 });
 
-$(".button-collapse").sideNav();
-
-$("#search").keyup(function(event) {
-  if (event.keyCode==13) {
-    $("#search").blur();
-    geocodeAddress();
-  }
+autocomplete.addListener("place_changed", function() {
+  var place = autocomplete.getPlace();
+  address = place.formatted_address;
+  getInfo(place.geometry.location.lat(), place.geometry.location.lng(), true);
 });
 
+$(".button-collapse").sideNav();
+
 $("#clear-search").click(function(event) {
-  $("#search").val("");
+  $("#search").val("").focus();
 });
 
 $("#toggle-search").click(function(event) {
@@ -66,7 +69,7 @@ $("#layer-check").change(function(event) {
   if (this.checked) {
     districtsLayer.setMap(map);
   } else {
-     districtsLayer.setMap(null);
+    districtsLayer.setMap(null);
   }
 });
 
@@ -184,27 +187,12 @@ function geolocate() {
     navigator.geolocation.getCurrentPosition(function (position) {
       $("#toast-container").empty();
       $(".button-collapse").sideNav("hide");
+      autocomplete.setBounds(bounds);
       geocodeLatLng(position.coords.latitude, position.coords.longitude, true);
     }, null, {maximumAge:600000, timeout:10000, enableHighAccuracy: true});
   } else {
     alert("Your browser does not support geolocation. Please search for an address.");
   }
-}
-
-function geocodeAddress() {
-  geocoder.geocode({
-    "address": $("#search").val(),
-    "componentRestrictions": config.geocode.componentRestrictions
-  }, function(results, status) {
-    if (status === google.maps.GeocoderStatus.OK) {
-      var lat = results[0].geometry.location.lat();
-      var lng = results[0].geometry.location.lng();
-      address = results[0].formatted_address;
-      getInfo(lat, lng, true);
-    } else {
-      alert("Geocoding was unsuccessful for the following reason: " + status);
-    }
-  });
 }
 
 function geocodeLatLng(lat, lng, updateMap) {
@@ -259,7 +247,6 @@ function getInfo(lat, lng, updateMap) {
       map.setZoom(17);
     }
   } else {
-    infowindow.setContent("<div class='center-align'><h6 class='blue-text lighten-1'>" + address + "</h6></div>");
     Materialize.toast("This location is outside of the geographic boundaries of this service...", 4000);
   }
 }

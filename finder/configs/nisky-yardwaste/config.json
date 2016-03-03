@@ -25,11 +25,5 @@
       "text": "For more information, please contact the Town Highway Department at <a href='tel:(518) 785-9753'>(518) 785-9753</a>."
     }
   },
-  "geolocate": true,
-  "geocode": {
-    "componentRestrictions": {
-      "country": "USA",
-      "postalCode": "12309"
-    }
-  }
+  "geolocate": true
 }

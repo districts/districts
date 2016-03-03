@@ -25,10 +25,6 @@
       "text": "For more information, please contact <a href='http://voteseminole.org/'>voteseminole.org</a>."
     }
   },
-  "geolocate": true,
-  "geocode": {
-    "componentRestrictions": {
-      "country": "USA"
-    }
+  "geolocate": true
   }
 }
