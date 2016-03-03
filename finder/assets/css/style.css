@@ -37,7 +37,7 @@ hr {
   width: calc(100% - 7rem);
 }
 .input-field input[type=search] ~ .material-icons {
-   color: gray;
+  color: lightgray;
 }
 .pac-item {
   height: 40px !important;
