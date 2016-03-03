@@ -1,14 +1,18 @@
 Materialize.toast("Loading...");
 
 var config, directory, map, geocoder, address, districtsGeoJSON, districtsLayer;
+
 var geocoder = new google.maps.Geocoder();
+
 var bounds = new google.maps.LatLngBounds();
+
+var infowindow = new google.maps.InfoWindow({
+  maxWidth: 250
+});
+
 var marker = new google.maps.Marker({
   draggable: true,
   animation: google.maps.Animation.DROP
-});
-var infowindow = new google.maps.InfoWindow({
-  maxWidth: 250
 });
 
 marker.addListener("click", function() {
@@ -214,7 +218,7 @@ function geocodeLatLng(lat, lng, updateMap) {
       if (results[0]) {
         $("#toast-container").empty();
         address = results[0].formatted_address;
-        getInfo(lat, lng, false);
+        getInfo(lat, lng, updateMap);
       } else {
         alert("No address found. Please try again.");
         $("#toast-container").empty();
